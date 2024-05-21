@@ -1,0 +1,35 @@
+<div class="container">
+    <h4 class="text-center m-2 p-2">Lista de Tickets Vendidos</h4>
+    <!-- Aquí colocarías la tabla de Angular DataTables para mostrar la lista de tickets -->
+    <table datatable class="row-border table table-bordered table-striped table-hover">
+      <!-- Cabecera de la tabla -->
+      <thead class="bg-dark text-white">
+        <tr>
+          <th>DNI</th>
+          <th>Precio Real</th>
+          <th>Tipo de Espectador</th>
+        </tr>
+      </thead>
+      <!-- Cuerpo de la tabla -->
+      <tbody>
+        <!-- Iterar sobre la lista de tickets y mostrar cada uno -->
+        <tr *ngFor="let ticket of lista">
+          <td>{{ ticket.dni }}</td>
+          <td>{{ ticket.precioReal }}</td>
+          <td>{{ ticket.tipoEspectador }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Resumen de ventas por tipo de espectador y total general -->
+    <div class="resumen">
+      <h4>Resumen de Ventas</h4>
+      <p>Total de tickets vendidos: {{ resumen.total }}</p>
+      <p>Total de tickets vendidos a locales: {{ resumen.local }}</p>
+      <p>Total de tickets vendidos a extranjeros: {{ resumen.extranjero }}</p>
+    </div>
+
+    <button type="submit" class="btn btn-primary m-2" routerLink="/punto5">Registrar ventas</button>
+    <button type="submit" class="btn btn-primary m-2" (click)="imprimir()">Imprimir</button>
+  </div>
+  

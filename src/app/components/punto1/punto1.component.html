@@ -1,0 +1,23 @@
+<div class="bg-zinc-100 dark:bg-zinc-800 p-3 container" >
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-xl font-semibold text-zinc-800 dark:text-white mb-6">Products</h2>
+        <div class=" row ">
+            
+                <div class="bg-white dark:bg-zinc-700 shadow rounded-lg p-3 col-md-4" *ngFor="let producto of productosDestacados">
+                    <div class="card mb-3">
+                        <img src={{producto.img}} alt="Product Image" class="w-full h-40 object-cover rounded p-3">
+                        <div class="card-body mt-4">
+                            <h3 class="text-lg font-bold text-zinc-900 dark:text-white text-center">{{producto.nombre}}</h3>
+                            <h3 class="text-lg font-bold text-zinc-600 dark:text-white fst-italic">{{producto.nombreCientifico}}</h3>
+                            <p class="text-zinc-700 dark:text-zinc-300">{{producto.descripcion}}</p>
+                            <div class="mt-2">
+                                <span class="text-zinc-900 dark:text-white font-semibold">${{producto.precio}}</span>
+                            </div>
+                            <button class="btn mt-3 btn-secondary text-white px-4 py-2" (click)="agregarAlCarrito(producto)">Agregar al carrito</button>
+                        </div>
+                    </div>
+                 </div>
+           
+        </div>
+    </div>
+</div>

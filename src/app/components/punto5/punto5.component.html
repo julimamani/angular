@@ -1,0 +1,40 @@
+<div class="container">
+    <h4 class="text-center m-2 p-2">Venta de Ticket</h4>
+    <form (ngSubmit)="registrarVenta()" class="well form-horizontal">
+        <div class="mb-3 row form-group">
+            <label for="dni" class="col-sm-2 col-form-label">DNI: </label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="dni" name="dni" [(ngModel)]="ticket.dni" requiredaria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+        </div>
+        <div class="form-group mb-3 row">
+            <label for="tipoEspectador" class="col-sm-2 col-form-label">Tipo de Espectador:</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="tipoEspectador" name="tipoEspectador" [(ngModel)]="ticket.tipoEspectador" (ngModelChange)="calcularPrecioCobrado()">
+                <option value="" disabled selected>Elegir Tipo de Espectador</option>
+                <option value="l" >Local</option>
+                <option value="e" >Extranjero</option>
+            </select>
+            </div>
+        </div>    
+        <div class="form-group mb-3 row">
+            <label for="precioReal" class="col-sm-2 col-form-label">Precio:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="precioReal" name="precioReal" [(ngModel)]="ticket.precioReal" (ngModelChange)="calcularPrecioCobrado()" required>
+            </div>
+        </div>
+        
+        <div class="form-group mb-3 row">
+        <label *ngIf="ticket.precioReal && ticket.tipoEspectador" for="precioCobrado" class="col-sm-2 col-form-label">Precio Cobrado:</label>
+            <div class="col-sm-10">
+                <p *ngIf="ticket.precioReal && ticket.tipoEspectador">{{ precioCobrado | currency:'USD':'symbol':'1.2-2' }}</p>
+
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary m-2">Registrar Venta</button>
+        <button type="submit" class="btn btn-primary m-2" routerLink="/lista">Ver Ventas</button>
+        
+    </form>
+  
+</div>
