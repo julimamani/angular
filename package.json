@@ -23,6 +23,7 @@
     "@angular/ssr": "^17.3.5",
     "@ng-bootstrap/ng-bootstrap": "^16.0.0",
     "angular-datatables": "^17.1.0",
+    "badge-maker": "^4.1.0",
     "bootstrap": "^5.3.3",
     "datatables.net": "^2.0.3",
     "datatables.net-bs5": "^2.0.3",
